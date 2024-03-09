@@ -1,0 +1,24 @@
+<div class="d-flex navbar-lewagon align-items-center sticky-top" >
+  <div class="d-flex">
+    <div class="h6 pe-5">
+      <%= link_to "HOME", root_path %>
+    </div>
+    <div class="h6 pe-5">
+      <%= link_to "ABOUT", about_path %>
+    </div>
+    <div class="h6 pe-3">
+      <%= link_to "PORTFOLIO", portfolio_path %>
+    </div>
+  </div>
+  <div id="navbar-logo">
+    <div class="d-flex justify-content-center">
+      <%=image_tag "clearcut2.png", class: "logo-pic text-align-center"%>
+    </div>
+    <%# <div>
+      ClearCut Media
+    </div> %>
+  </div>
+  <div class="h6">
+    <%= link_to "CONTACT", contact_path %>
+  </div>
+</div>
