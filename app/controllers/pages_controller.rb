@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
 
   def home
+    @videos = Video.all
+    @video = Video.find_by(id: params[:id])
   end
 
   def about
@@ -11,5 +13,5 @@ class PagesController < ApplicationController
 
   def contact
   end
-  
+
 end

@@ -1,1 +1,3 @@
-HOME
+<% @videos.each do |video|%>
+  <%= video_tag video.clip.url, controls: false, autoplay: true, muted: true, loop: true, class: "video video-hover" %>
+<% end %>
