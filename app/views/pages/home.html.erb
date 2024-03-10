@@ -1,11 +1,16 @@
 <% @videos.each do |video|%>
-  <%= video_tag video.clip.url,
-      controls: false,
-      autoplay: false,
-      muted: true,
-      loop: true,
-      class: "video video-hover",
-      data: { controller: "video",
-              action: "mouseenter->video#play"
- } %>
+  <div class="video-container" data-controller="video">
+    <%= video_tag video.clip.url,
+        controls: false,
+        autoplay: false,
+        muted: true,
+        loop: true,
+        class: "video",
+        data: { action: "mouseenter->video#play mouseleave->video#pause",
+                video_target: "video"
+    } %>
+    <div class="video-text d-none" data-video-target="text">
+      <%= video.name%>
+    </div>
+  </div>
 <% end %>

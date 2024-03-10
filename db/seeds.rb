@@ -11,22 +11,25 @@
 require "open-uri"
 
 
-videos = [
-  "https://res.cloudinary.com/dezhqd5rm/video/upload/v1709997316/RPReplay_Final1709996155_xmhjom.mov",
-  "https://res.cloudinary.com/dezhqd5rm/video/upload/v1710024480/RPReplay_Final1710024046_afbb5x.mov",
-  "https://res.cloudinary.com/dezhqd5rm/video/upload/v1710024490/RPReplay_Final1710024122_c4vl5x.mov"
-]
+videos = {
+ "Salcombe Boat Company" => "https://res.cloudinary.com/dezhqd5rm/video/upload/v1709997316/RPReplay_Final1709996155_xmhjom.mov",
+ "Batson Creek" => "https://res.cloudinary.com/dezhqd5rm/video/upload/v1710024480/RPReplay_Final1710024046_afbb5x.mov",
+ "Totnes" => "https://res.cloudinary.com/dezhqd5rm/video/upload/v1710024490/RPReplay_Final1710024122_c4vl5x.mov"
+}
 
 number_of_videos = videos.count
 video_name = 0
+
+video_names = videos.keys
+video_urls = videos.values
 
 puts "Deleting the database"
 Video.destroy_all
 
 number_of_videos.times do
   video_name += 1
-  clip = URI.open(videos.shift)
-  name = "video_#{video_name}"
+  clip = URI.open(video_urls.shift)
+  name = "#{video_names.shift}"
   video = Video.new(name: name)
   video.clip.attach(io: clip, filename: "video.mp4", content_type: "video/mp4")
   puts "#{video.name} created"
