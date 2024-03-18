@@ -1,1 +1,36 @@
-Portfolio
+<div class="row">
+  <% @landscape_videos.each do |video|%>
+    <div class="video-container-landscape" data-controller="video">
+      <%= video_tag video.clip.url,
+          controls: false,
+          autoplay: false,
+          muted: true,
+          loop: true,
+          class: "video",
+          data: { action: "mouseenter->video#play mouseleave->video#pause",
+                  video_target: "video"
+      } %>
+      <div class="video-text d-none" data-video-target="text">
+        <%= video.name%>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="row">
+  <% @portrait_videos.each do |video|%>
+    <div class="video-container-portrait" data-controller="video">
+      <%= video_tag video.clip.url,
+          controls: false,
+          autoplay: false,
+          muted: true,
+          loop: true,
+          class: "video",
+          data: { action: "mouseenter->video#play mouseleave->video#pause",
+                  video_target: "video"
+      } %>
+      <div class="video-text d-none" data-video-target="text">
+        <%= video.name%>
+      </div>
+    </div>
+  <% end %>
+</div>

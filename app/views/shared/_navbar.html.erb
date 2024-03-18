@@ -12,7 +12,9 @@
   </div>
   <div id="navbar-logo">
     <div class="d-flex justify-content-center">
-      <%=image_tag "clearcut2.png", class: "logo-pic text-align-center"%>
+      <%= link_to root_path do %>
+        <%=image_tag "clearcut2.png", class: "logo-pic text-align-center"%>
+      <% end %>
     </div>
     <%# <div>
       ClearCut Media

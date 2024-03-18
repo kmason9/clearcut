@@ -1,16 +1,14 @@
-<% @videos.each do |video|%>
-  <div class="video-container" data-controller="video">
-    <%= video_tag video.clip.url,
+<div class="row">
+  <div class="video-container-home" data-controller="video">
+    <%= video_tag @home_video.clip.url,
         controls: false,
-        autoplay: false,
+        autoplay: true,
         muted: true,
         loop: true,
-        class: "video",
-        data: { action: "mouseenter->video#play mouseleave->video#pause",
-                video_target: "video"
-    } %>
-    <div class="video-text d-none" data-video-target="text">
-      <%= video.name%>
+        class: "video"
+     %>
+    <div class="video-text-home">
+      <%= "Welcome to ClearCut Media"%>
     </div>
   </div>
-<% end %>
+</div>
