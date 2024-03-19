@@ -1,0 +1,9 @@
+<div class="video-page-portrait">
+  <%= video_tag @video.clip.url,
+    controls: false,
+    autoplay: true,
+    muted: true,
+    loop: true,
+    class: "video"
+  %>
+</div>

@@ -10,6 +10,14 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   get "about", to: "pages#about"
+
   get "portfolio", to: "pages#portfolio"
+
   get "contact", to: "pages#contact"
+
+  get "videos/:id", to: "videos#show", as: "videos"
+
+  get "messages/new", to: "messages#new"
+  post "messages", to: "messages#create"
+
 end

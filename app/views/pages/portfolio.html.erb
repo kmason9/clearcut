@@ -1,33 +1,37 @@
-<div class="row">
+<div class="row justify-content-between">
   <% @landscape_videos.each do |video|%>
-    <div class="video-container-landscape" data-controller="video">
-      <%= video_tag video.clip.url,
-          controls: false,
-          autoplay: false,
-          muted: true,
-          loop: true,
-          class: "video",
-          data: { action: "mouseenter->video#play mouseleave->video#pause",
-                  video_target: "video"
-      } %>
+    <div class="video-portfolio-landscape" data-controller="video">
+      <%= link_to videos_path(video) do %>
+          <%= video_tag video.clip.url,
+              controls: false,
+              autoplay: false,
+              muted: true,
+              loop: true,
+              class: "video",
+              data: { action: "mouseenter->video#play mouseleave->video#pause",
+                      video_target: "video"
+          } %>
+      <% end %>
       <div class="video-text d-none" data-video-target="text">
         <%= video.name%>
       </div>
     </div>
   <% end %>
 </div>
-<div class="row">
+<div class="row justify-content-between">
   <% @portrait_videos.each do |video|%>
-    <div class="video-container-portrait" data-controller="video">
-      <%= video_tag video.clip.url,
-          controls: false,
-          autoplay: false,
-          muted: true,
-          loop: true,
-          class: "video",
-          data: { action: "mouseenter->video#play mouseleave->video#pause",
-                  video_target: "video"
-      } %>
+    <div class="video-portfolio-portrait" data-controller="video">
+      <%= link_to videos_path(video) do %>
+        <%= video_tag video.clip.url,
+            controls: false,
+            autoplay: false,
+            muted: true,
+            loop: true,
+            class: "video",
+            data: { action: "mouseenter->video#play mouseleave->video#pause",
+                    video_target: "video"
+        } %>
+      <% end %> 
       <div class="video-text d-none" data-video-target="text">
         <%= video.name%>
       </div>
